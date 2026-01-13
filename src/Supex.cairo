@@ -1,11 +1,4 @@
 // SPDX-License-Identifier: MIT
-// Compatible with OpenZeppelin Contracts for Cairo 2.0.0
-
-const UPGRADER_ROLE: felt252 = selector!("UPGRADER_ROLE");
-const DEFAULT_ADMIN_ROLE: felt252 = selector!("DEFAULT_ADMIN_ROLE");
-const SHOP_OWNER_ROLE: felt252 = selector!("SHOP_OWNER_ROLE");
-
-// Security contact: caxtoacollins@gmail.com
 #[starknet::contract]
 mod Supex {
     use core::array::ArrayTrait;
@@ -25,6 +18,10 @@ mod Supex {
         PaymentProcessed, StatusUpdated, Ticket, TicketCompleted, TicketCreated, TicketStatus,
     };
     use super::*;
+
+    const UPGRADER_ROLE: felt252 = selector!("UPGRADER_ROLE");
+    // const DEFAULT_ADMIN_ROLE: felt252 = selector!("DEFAULT_ADMIN_ROLE");
+    const SHOP_OWNER_ROLE: felt252 = selector!("SHOP_OWNER_ROLE");
 
     component!(path: ERC20Component, storage: erc20, event: ERC20Event);
     component!(path: AccessControlComponent, storage: accesscontrol, event: AccessControlEvent);
